@@ -16,17 +16,30 @@ struct entry {
 struct entry *find_entry(struct entry *list_ptr, int match);
 
 int main(void){
+    struct entry n1, n2, n3;
+    struct entry *list_ptr, *list_start = &n1;
+    int search;
 
+    n1.value = 100;
+    n1.next = &n2;
 
+    n2.value = 200;
+    n2.next = &n3;
 
+    n3.value = 300;
+    n3.next = (struct entry *) 0;
 
+    printf("Enter number to locate: ");
+    scanf("%i", &search);
 
+    list_ptr = find_entry(list_start, search);
 
+    if(list_ptr != (struct entry *) 0)
+        printf("Found %i.\n", list_ptr->value);
+    else
+        printf("Not found.\n");
 
-
-
-
-
+    return(0);
 
 }
 
